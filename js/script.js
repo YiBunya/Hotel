@@ -15,7 +15,7 @@ function insert(){
     console.log(store_room);
     sessionStorage.setItem("room",JSON.stringify(store_room));
     alert("Insert successfully");
-    location = "../Floor/page/roomcheck.html";
+    location = "../page/roomcheck.html";
 }
 
 function validate(){
