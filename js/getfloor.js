@@ -16,7 +16,7 @@ for(i = 0 ; i < store_room.length ; i++){
 for(let i=1;i<=store_room[0];i++){
     tr += `
     <tr>
-        <td>Floor ${i}</td>`;
+        <th>Floor ${i}</th>`;
     for(let j = 1;j<=store_room[1];j++){
         tr += `
             <td id="col${i}-${j}">${col}</td>
@@ -30,8 +30,6 @@ document.querySelector("#chfrm").onsubmit = (event)=>{
     event.preventDefault();
     if(validate()){
         insertCh();
-    }else{ 
-        alert("Please enter all information");
     }
     document.querySelector("#chfrm").reset();
 } 
@@ -39,8 +37,9 @@ document.querySelector("#chfrm").onsubmit = (event)=>{
 function insertCh(){
     roomid = `col${Floor_Ch.value}-${Room_Ch.value}`;
     let col_room = document.querySelector(`#${roomid}`)
-
-    
+   if(Check_Ch.value == 0){
+    alert(`Room ${Room_Ch.value} is do not exist value`);
+   }
     if(col_room == null){
         alert(`Floor ${Floor_Ch.value} and Room ${Room_Ch.value} is do not exist`);
     }
@@ -56,27 +55,33 @@ function insertCh(){
 }
 function validate(){
     let check = true;
-    if(Floor_Ch.value == ""){
-        document.querySelector("#label_floor").innerHTML="Please input floor";
+    if (/\s/.test(Check_Ch.value)) {  // \s checks for spaces
+        alert("Input contains spaces. No spaces allowed.");
         check = false;
-    }else{  
-        document.querySelector("#label_floor").innerHTML="";
-        check = true;
+    } else {
+        if(Floor_Ch.value == ""){
+            document.querySelector("#label_floor").innerHTML="Please input floor";
+            check = false;
+        }else{  
+            document.querySelector("#label_floor").innerHTML="";
+            check = true;
+        }
+        if(Room_Ch.value == ""){
+            document.querySelector("#label_room").innerHTML="Please input room";
+            check = false;
+        }else{
+            document.querySelector("#label_room").innerHTML="";
+            check = true;
+        }
+        if(Check_Ch.value == ""){
+            document.querySelector("#label_checkin").innerHTML="Please input check in";
+            check = false;
+        }else{
+            document.querySelector("#label_checkin").innerHTML="";
+            check = true;
+        }
     }
-    if(Room_Ch.value == ""){
-        document.querySelector("#label_room").innerHTML="Please input room";
-        check = false;
-    }else{
-        document.querySelector("#label_room").innerHTML="";
-        check = true;
-    }
-    if(Check_Ch.value == ""){
-        document.querySelector("#label_checkin").innerHTML="Please input check in";
-        check = false;
-    }else{
-        document.querySelector("#label_checkin").innerHTML="";
-        check = true;
-    }
+    
     return check;
 }
 Floor_Ch.oninput = ()=>{

@@ -14,10 +14,10 @@
     <div class="container">
         <h1 id="title_hotel">Your Hotel have 3 floor and 10 room</h1>
         <div class="container mt-5">
-            <button id="btncheckin">Check in</button>
-            <button id="btnchecheckout">Check out</button>
-            <button id="btndisplay">Display</button>
-            <button  data-bs-toggle="modal" data-bs-target="#exampleModal">Exit</button>
+            <button class="btn btn-success" id="btncheckin">Check in</button>
+            <button class="btn btn-warning" id="btnchecheckout">Check out</button>
+            <button class="btn btn-primary" id="btndisplay">Display</button>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Exit</button>
 
         </div>
     </div>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="container mt-5 d-none" id="boxcheckout">
-        <form action="" id="choutfrm" class="bg-secondary w-25 m-auto p-3">
+        <form action="" id="choutfrm" class="bg-primary bg-opacity-50 w-25 m-auto p-3">
             <h1 class="text-light fs-2 fw-bold">Check out</h1>
             <div class="mt-5">
                 <label for="number" class="form-label text-light fw-semibold">Enter Floor number</label>
@@ -57,7 +57,7 @@
 
     </div>
     <div class="container mt-5 d-none" id="boxcheckin">
-        <form action="" id="chfrm" class="bg-secondary w-25 m-auto p-3">
+        <form action="" id="chfrm" class="bg-primary bg-opacity-50 w-25 m-auto p-3">
             <h1 class="text-light fs-2 fw-bold">Check in</h1>
             <div class="">
                 <label for="number" class="form-label text-light fw-semibold">Floor</label>
@@ -94,7 +94,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <h1 class="text-danger">Do you want to exit?</h1>
+            <h1 class="h4 text-danger">Do you want to exit?</h1>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>

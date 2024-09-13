@@ -18,20 +18,27 @@ function insert() {
 
 function validate() {
   let check = true;
-  if (floor.value == "") {
-    document.querySelector("#label_floor").innerHTML = "Please input floor";
+  if(floor.value == 0 || room.value == 0){
+    alert("Please input floor and room");
     check = false;
-  } else {
-    document.querySelector("#label_floor").innerHTML = "";
-    check = true;
   }
-  if (room.value == "") {
-    document.querySelector("#label_room").innerHTML = "Please input room";
-    check = false;
-  } else {
-    document.querySelector("#label_room").innerHTML = "";
-    check = true;
+  else{
+    if (floor.value == "") {
+      document.querySelector("#label_floor").innerHTML = "Please input floor";
+      check = false;
+    } else {
+      document.querySelector("#label_floor").innerHTML = "";
+      check = true;
+    }
+    if (room.value == "") {
+      document.querySelector("#label_room").innerHTML = "Please input room";
+      check = false;
+    } else {
+      document.querySelector("#label_room").innerHTML = "";
+      check = true;
+    }
   }
+  
   return check;
 }
 floor.oninput = () => {
