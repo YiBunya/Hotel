@@ -19,8 +19,16 @@ function insert() {
 function validate() {
   let check = true;
   if(floor.value == 0 || room.value == 0){
-    alert("Please input floor and room");
-    check = false;
+    if(floor.value == 0 && room.value == 0){
+      alert("Floor and room Can not equal 0, Please input floor and room again");
+      check = false;
+    }else if(floor.value == 0){
+      alert("Floor Can not equal 0, Please input floor again");
+      check = false;
+    }else if(room.value == 0){
+      alert("Room Can not equal 0, Please input room again");
+      check = false;
+    }
   }
   else{
     if (floor.value == "") {
